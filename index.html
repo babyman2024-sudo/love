@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#21091c">
+  <meta name="description" content="یک هدیه عاشقانه و فراموش‌نشدنی">
+  <title>برای عزیزترینم</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient__glow ambient__glow--one"></span>
+    <span class="ambient__glow ambient__glow--two"></span>
+    <span class="ambient__glow ambient__glow--three"></span>
+    <div id="floatingParticles"></div>
+  </div>
+
+  <!-- ورود با پاکت نامه -->
+  <main id="gatePage" class="screen screen--active gate">
+    <section class="gate__content">
+      <p class="kicker">یک هدیه کوچک، از تمام قلبم</p>
+      <h1>پشت این نامه، بخشی از قلب من منتظر توست...</h1>
+
+      <button id="openEnvelope" class="envelope" type="button" aria-label="باز کردن نامه">
+        <span class="envelope__back"></span>
+        <span class="envelope__paper">
+          <span>فقط برای تو</span>
+          <strong>❤️</strong>
+        </span>
+        <span class="envelope__front"></span>
+        <span class="envelope__flap"></span>
+        <span class="envelope__seal">♥</span>
+      </button>
+
+      <p id="openHint" class="gate__hint">برای باز کردن نامه لمس کن</p>
+
+      <form id="passwordForm" class="password-panel" autocomplete="off">
+        <label for="passwordInput">رمز کوچک میان قلب‌هایمان</label>
+
+        <div class="password-panel__field">
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="رمز را اینجا بنویس..."
+            required
+          >
+          <button id="togglePassword" type="button" aria-label="نمایش رمز">👁️</button>
+        </div>
+
+        <p id="passwordMessage" class="password-panel__message" aria-live="polite"></p>
+
+        <button class="romantic-button romantic-button--primary" type="submit">
+          باز کردن قلب من
+          <span>♥</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- مقدمه سینمایی -->
+  <section id="introPage" class="screen cinematic" aria-hidden="true">
+    <div class="cinematic__stars"></div>
+
+    <div class="cinematic__content">
+      <p id="cinematicText"></p>
+      <button id="skipIntro" class="text-button" type="button">رد کردن مقدمه</button>
+    </div>
+  </section>
+
+  <!-- جشن تولد -->
+  <section id="celebrationPage" class="screen celebration" aria-hidden="true">
+    <canvas id="confettiCanvas"></canvas>
+    <div id="heartExplosion" class="heart-explosion" aria-hidden="true"></div>
+
+    <div class="celebration__content">
+      <p>امروز جهان کمی زیباتر است...</p>
+      <h2>
+        تولدت مبارک
+        <span id="celebrationName">تمام دنیای من</span>
+      </h2>
+      <p id="celebrationMessage">
+        آرزو می‌کنم تمام لحظه‌های زندگی‌ات به زیبایی لبخندت باشند.
+      </p>
+
+      <button id="enterStory" class="romantic-button romantic-button--light" type="button">
+        وارد قصهٔ ما شو
+        <span>✨</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- محتوای اصلی -->
+  <main id="storyPage" class="screen story" aria-hidden="true">
+    <nav class="story-nav">
+      <a href="#storyHero" aria-label="ابتدای صفحه">♥</a>
+      <div>
+        <a href="#timeline">قصه ما</a>
+        <a href="#memories">خاطره‌ها</a>
+        <a href="#music">ترانه ما</a>
+      </div>
+    </nav>
+
+    <section id="storyHero" class="story-hero">
+      <div class="story-hero__content reveal">
+        <p class="kicker">به افتخار زیباترین اتفاق زندگی من</p>
+        <h2>
+          قصه‌ای که با
+          <span id="heroName">تو</span>
+          زیباتر شد
+        </h2>
+        <p id="heroDescription">
+          میان تمام اتفاق‌های جهان، آشنایی با تو قشنگ‌ترین اتفاق من بود.
+          این صفحه چند قاب کوچک از دنیای بزرگی است که در قلبم ساخته‌ای.
+        </p>
+
+        <a href="#counter" class="romantic-button romantic-button--primary">
+          ورق زدن قصه ما
+          <span>↓</span>
+        </a>
+      </div>
+
+      <div class="heart-scene reveal" aria-hidden="true">
+        <span class="heart-scene__orbit heart-scene__orbit--one"></span>
+        <span class="heart-scene__orbit heart-scene__orbit--two"></span>
+
+        <button id="interactiveHeart" class="glass-heart" type="button">
+          <span>♥</span>
+          <small>قلبم را لمس کن</small>
+        </button>
+      </div>
+
+      <p id="heartSecret" class="heart-secret">
+        هر بار که این قلب می‌تپد، بیشتر دوستت دارم.
+      </p>
+    </section>
+
+    <!-- شمارنده -->
+    <section id="counter" class="content-section counter-section reveal">
+      <div class="section-title">
+        <p class="kicker">از روزی که وارد زندگی من شدی...</p>
+        <h3>قلب من زمان را این‌طور شمرده است</h3>
+      </div>
+
+      <div id="loveCounter" class="love-counter">
+        <article><strong id="counterYears">۰</strong><span>سال</span></article>
+        <article><strong id="counterMonths">۰</strong><span>ماه</span></article>
+        <article><strong id="counterDays">۰</strong><span>روز</span></article>
+        <article><strong id="counterHours">۰</strong><span>ساعت</span></article>
+        <article><strong id="counterMinutes">۰</strong><span>دقیقه</span></article>
+        <article><strong id="counterSeconds">۰</strong><span>ثانیه</span></article>
+      </div>
+
+      <p class="counter-section__note">
+        و در تمام این لحظه‌ها، دوست‌داشتنت زیباترین حس من بوده است.
+      </p>
+    </section>
+
+    <!-- پیام صوتی -->
+    <section class="content-section voice-section reveal">
+      <div class="voice-card">
+        <div class="voice-card__icon">🎙️</div>
+
+        <div class="voice-card__content">
+          <p class="kicker">قبل از دیدن خاطره‌ها...</p>
+          <h3>چند کلمه با صدای من، فقط برای تو</h3>
+          <p>اگر آماده‌ای، هدفونت را بگذار و دکمه زیر را لمس کن.</p>
+
+          <audio id="voiceAudio" preload="metadata">
+            <source src="assets/voice.mp3" type="audio/mpeg">
+          </audio>
+
+          <button id="voiceButton" class="romantic-button romantic-button--primary" type="button">
+            <span id="voiceButtonIcon">▶</span>
+            <span id="voiceButtonText">شنیدن پیام من</span>
+          </button>
+
+          <div class="audio-progress">
+            <span id="voiceCurrentTime">۰:۰۰</span>
+            <div><i id="voiceProgress"></i></div>
+            <span id="voiceDuration">۰:۰۰</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- تایم‌لاین -->
+    <section id="timeline" class="content-section timeline-section">
+      <div class="section-title reveal">
+        <p class="kicker">از یک سلام ساده تا یک دوست‌داشتن بی‌انتها</p>
+        <h3>قصهٔ ما</h3>
+      </div>
+
+      <div id="timelineList" class="timeline"></div>
+    </section>
+
+    <!-- گالری -->
+    <section id="memories" class="content-section memories-section">
+      <div class="section-title reveal">
+        <p class="kicker">قاب‌هایی که زمان را متوقف کردند</p>
+        <h3>خاطره‌های دوست‌داشتنی ما</h3>
+        <p>هر عکس را لمس کن تا خاطره‌اش دوباره زنده شود.</p>
+      </div>
+
+      <div id="polaroidGallery" class="polaroid-gallery"></div>
+    </section>
+
+    <!-- دلایل دوست داشتن -->
+
+<!-- قاب ویژه چشم‌ها -->
+<section class="eyes-section content-section">
+  <div class="eyes-section__heading reveal">
+    <p class="kicker">و میان تمام زیبایی‌های دنیا...</p>
+    <h3>چشم‌هایت</h3>
+    <p>جایی که هر بار، دلم کمی بیشتر خانه می‌کند.</p>
+  </div>
+
+  <button
+    class="eyes-card reveal"
+    type="button"
+    data-photo-src="assets/images/eyes.jpg"
+    data-photo-title="چشم‌هایت"
+    data-photo-caption="دو پنجره به آرام‌ترین جای دنیا؛ دلِ من."
+    aria-label="نمایش عکس چشم‌ها"
+  >
+    <img src="assets/images/eyes.jpg" alt="نمای نزدیک از چشم‌ها">
+    <span class="eyes-card__overlay"></span>
+
+    <span class="eyes-card__text">
+      <span>در چشم‌هایت</span>
+      <strong>تمامِ جهانم آرام می‌گیرد</strong>
+    </span>
+  </button>
+</section>
+
+
+    <section class="content-section reasons-section">
+      <div class="section-title reveal">
+        <p class="kicker">اگر از من بپرسند چرا...</p>
+        <h3>چرا دوستت دارم؟</h3>
+        <p>کارت‌ها را لمس کن؛ پشت هرکدام بخشی از قلب من پنهان است.</p>
+      </div>
+
+      <div id="reasonsGrid" class="reasons-grid"></div>
+    </section>
+
+   <!-- کیک آرزوها -->
+<section class="cake-section">
+  <div class="cake-section__heading reveal">
+    <p class="kicker">یک آرزو کن...</p>
+    <h3>کیک کوچکِ ما</h3>
+    <p>در میکروفن فوت کن یا شمع‌ها را لمس کن تا خاموش شوند.</p>
+  </div>
+
+  <div class="cake-stage reveal">
+    <div class="cake-glow"></div>
+
+    <div
+      id="birthdayCake"
+      class="birthday-cake"
+      role="group"
+      aria-label="کیک تولد با پنج شمع قابل خاموش کردن"
+    >
+      <div class="cake-candles">
+        <button class="cake-candle is-lit" type="button" data-message="دوست داشتن، پیدا کردن یک نفر نیست؛ ساختن خانه‌ای امن در قلب یک نفر است.">
+          <span class="candle-flame"></span>
+          <span class="candle-wick"></span>
+          <span class="candle-body"></span>
+          <span class="sr-only">خاموش کردن شمع اول</span>
+        </button>
+
+        <button class="cake-candle is-lit" type="button" data-message="بعضی آدم‌ها زمان را زیباتر نمی‌کنند؛ آن‌ها دلیلِ گذشتن از زمان می‌شوند.">
+          <span class="candle-flame"></span>
+          <span class="candle-wick"></span>
+          <span class="candle-body"></span>
+          <span class="sr-only">خاموش کردن شمع دوم</span>
+        </button>
+
+        <button class="cake-candle is-lit cake-candle--center" type="button" data-message="عشق یعنی در شلوغ‌ترین روزها هم، قلبت آدرسِ آرامشش را بلد باشد.">
+          <span class="candle-flame"></span>
+          <span class="candle-wick"></span>
+          <span class="candle-body"></span>
+          <span class="sr-only">خاموش کردن شمع سوم</span>
+        </button>
+
+        <button class="cake-candle is-lit" type="button" data-message="آدمی که دوستش داری، بخشی از رؤیاهایت نیست؛ دلیلِ بیدار شدنِ توست.">
+          <span class="candle-flame"></span>
+          <span class="candle-wick"></span>
+          <span class="candle-body"></span>
+          <span class="sr-only">خاموش کردن شمع چهارم</span>
+        </button>
+
+        <button class="cake-candle is-lit" type="button" data-message="اگر جهان هزار راه برای گم شدن داشته باشد، نگاه تو همیشه راهِ برگشتنِ دل من است.">
+          <span class="candle-flame"></span>
+          <span class="candle-wick"></span>
+          <span class="candle-body"></span>
+          <span class="sr-only">خاموش کردن شمع پنجم</span>
+        </button>
+      </div>
+
+      <div class="cake-top">
+        <span class="cake-cream cake-cream--1"></span>
+        <span class="cake-cream cake-cream--2"></span>
+        <span class="cake-cream cake-cream--3"></span>
+        <span class="cake-cream cake-cream--4"></span>
+        <span class="cake-cream cake-cream--5"></span>
+      </div>
+
+      <div class="cake-layer cake-layer--top"></div>
+      <div class="cake-layer cake-layer--middle"></div>
+      <div class="cake-layer cake-layer--bottom"></div>
+      <div class="cake-plate"></div>
+    </div>
+
+    <div id="cakeMessage" class="cake-message" aria-live="polite">
+      <span>✨</span>
+      <p>هر شمع، یک تکه از آرزویی است که برای تو دارم.</p>
+    </div>
+<div id="cakeFinalSurprise" class="cake-final-surprise" aria-live="polite">
+  <span class="cake-final-surprise__icon">🎂</span>
+  <h4>تولدت مبارک، عشقِ روشنِ زندگی من</h4>
+  <p>
+    همهٔ شمع‌ها خاموش شدند؛
+    اما آرزوی من برای خوشبختی تو همیشه روشن می‌ماند.
+  </p>
+
+  <button id="openFinalGiftButton" class="open-final-gift-button" type="button">
+    هدیهٔ آخر را باز کن 🎁
+  </button>
+</div>
+
+
+    <div class="cake-actions">
+      <button id="enableBlowButton" class="cake-mic-button" type="button">
+        🎙️ فعال کردن فوت کردن
+      </button>
+      <span id="cakeStatus">یا روی شمع‌ها لمس کن</span>
+    </div>
+  </div>
+</section>
+
+
+    <!-- پخش موسیقی -->
+    <section id="music" class="content-section music-section reveal">
+      <div class="music-card">
+        <div class="record-wrap">
+          <div id="vinylRecord" class="vinyl-record">
+            <span>♥</span>
+          </div>
+        </div>
+
+        <div class="music-card__content">
+          <p class="kicker">با صدای من، برای تو</p>
+          <h3 id="songTitle">ترانهٔ عاشقانهٔ ما</h3>
+          <p id="songArtist">تقدیم به عزیزترین آدم زندگی‌ام</p>
+
+          <audio id="songAudio" preload="metadata">
+            <source src="assets/song.mp3" type="audio/mpeg">
+          </audio>
+
+          <div class="music-controls">
+            <button id="songPlayButton" type="button" aria-label="پخش موسیقی">▶</button>
+
+            <div class="music-controls__progress">
+              <input id="songProgress" type="range" min="0" max="100" value="0">
+              <div>
+                <span id="songCurrentTime">۰:۰۰</span>
+                <span id="songDuration">۰:۰۰</span>
+              </div>
+            </div>
+
+            <button id="songMuteButton" type="button" aria-label="قطع صدا">🔊</button>
+          </div>
+
+         
+        </div>
+      </div>
+    </section>
+
+    <!-- صندوق آرزوها -->
+    <section class="content-section wishes-section reveal">
+      <div class="section-title">
+        <p class="kicker">سه آرزو برای سال جدید زندگی‌ات</p>
+        <h3>صندوقچهٔ آرزوها</h3>
+      </div>
+
+      <button id="giftBox" class="gift-box" type="button" aria-label="باز کردن هدیه">
+        <span class="gift-box__lid"><i></i></span>
+        <span class="gift-box__body"><i></i></span>
+        <span class="gift-box__bow">❤</span>
+      </button>
+
+      <p id="giftHint">هدیه را لمس کن</p>
+      <div id="wishesList" class="wishes-list"></div>
+    </section>
+
+   <!-- نامه نهایی -->
+<section id="finalLetterSection" class="final-letter-section">
+  <div class="final-letter-section__heading reveal">
+    <p class="kicker">آخرین هدیهٔ من برای تو</p>
+    <h3>نامه‌ای برای قلبت</h3>
+    <p>این نامه فقط با کمی صبر و لمس تو باز می‌شود.</p>
+  </div>
+
+  <div class="love-letter-lock reveal">
+    <div class="love-letter-lock__envelope">
+      <span class="love-letter-lock__heart">♥</span>
+      <span class="love-letter-lock__line"></span>
+    </div>
+
+    <p id="letterHint" class="love-letter-lock__hint">
+      برای باز کردن نامه، دکمه را سه ثانیه نگه دار...
+    </p>
+
+    <button
+      id="holdLetterButton"
+      class="hold-letter-button"
+      type="button"
+      aria-label="برای باز کردن نامه، دکمه را نگه دارید"
+    >
+      <span class="hold-letter-button__progress"></span>
+      <span id="holdLetterButtonText" class="hold-letter-button__text">
+        ♥ نگه دار
+      </span>
+    </button>
+  </div>
+
+<div class="final-letter-section__intro">
+  <p>یک نامه کوچک برای تو دارم...</p>
+
+  <button
+    id="openFinalLetter"
+    class="romantic-button romantic-button--primary"
+    type="button"
+  >
+    نامه‌ام را باز کن ❤️
+  </button>
+</div>
+
+  <article id="finalLetter" class="final-letter" aria-hidden="true">
+    <span class="final-letter__seal">♥</span>
+
+    <p>عزیزِ دلِ من،</p>
+
+    <p>
+      اگر قرار بود تمام زیبایی‌های دنیا را در یک واژه خلاصه کنم،
+      باز هم نام تو را انتخاب می‌کردم.
+    </p>
+
+    <p>
+      تو فقط یک خاطرهٔ زیبا در زندگی من نیستی؛
+      تو همان آرامشی هستی که دلم همیشه دنبالش می‌گشت.
+    </p>
+
+    <p>
+      آرزو می‌کنم در تمام روزهای پیش رو، لبخندت از ته دل باشد؛
+      و اگر روزی دنیا خسته‌ات کرد، قلب من همیشه جایی برای آرام گرفتنت داشته باشد.
+    </p>
+<div id="typedLetter" class="final-letter__text"></div>
+
+    <p class="final-letter__ending">
+  تولدت مبارک، عشقِ روشنِ زندگی من. ♥
+</p>
+
+<p class="final-signature">
+  <span id="finalSignature"></span>
+</p>
+
+</article>
+</section>
+
+
+        <button id="replayExperience" class="romantic-button romantic-button--primary" type="button">
+          دوباره از اول
+          <span>♥</span>
+        </button>
+      </article>
+    </section>
+
+    <footer>
+      ساخته شده با تمام قلبم، فقط برای تو ❤️
+    </footer>
+  </main>
+
+  <!-- پنجره عکس -->
+  <div id="photoModal" class="photo-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <button id="closePhotoModal" type="button" aria-label="بستن">×</button>
+    <figure>
+      <img id="modalPhoto" src="" alt="">
+      <figcaption>
+        <strong id="modalPhotoTitle"></strong>
+        <span id="modalPhotoCaption"></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
